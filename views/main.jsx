@@ -1,7 +1,7 @@
 import React from 'react'
 import { render } from 'react-dom'
 
-const apiUrl = 'http://localhost:2173/api/todo'
+const apiUrl = 'http://localhost:5000/api/todo'
 
 const Title = ({todoCount}) => {
   return (
