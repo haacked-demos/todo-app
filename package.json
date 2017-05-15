@@ -1,0 +1,20 @@
+{
+  "name": "todo-app",
+  "version": "0.1.0",
+  "main": "main.js",
+  "license": "MIT",
+  "repository": "fakehaacked/todo-app",
+  "scripts": {
+    "start": "electron -r babel-register ."
+  },
+  "dependencies": {
+    "babel-preset-es2015": "^6.3.13",
+    "babel-preset-react": "^6.3.13",
+    "babel-register": "^6.3.13",
+    "react": "^15.3.2",
+    "react-dom": "^15.3.2"
+  },
+  "devDependencies": {
+    "electron": "^1.4.3"
+  }
+}
