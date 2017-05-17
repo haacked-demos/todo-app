@@ -30,7 +30,7 @@ const TodoItem = ({todo, remove}) => {
     <li className="list-group-item clearfix">
       <span>{todo.title}</span>
       <span className="pull-right button-group">
-        <button onClick={() => {remove(todo.key)}} type="button" className="btn btn-danger"><span className="glyphicon glyphicon-remove"></span> Delete</button>
+        <button onClick={() => {remove(todo.key)}} type="button" className="btn" aria-label="Delete"><span className="glyphicon glyphicon-remove"></span></button>
       </span>
     </li>
   )
