@@ -40,7 +40,11 @@ const TodoList = ({items, remove}) => {
   const todoElements = items.map((todo) => {
     return (<TodoItem todo={todo} key={todo.key} remove={remove}/>)
   })
-  return (<ul className="list-group" style={{marginTop:'30px'}}>{todoElements}</ul>)
+  return (
+    <div className='list-group-container'>
+      <ul className="list-group">{todoElements}</ul>
+    </div>
+  )
 }
 
 export default class TodoApp extends React.Component {
