@@ -6,7 +6,7 @@ const apiUrl = 'http://localhost:5000/api/todo'
 const Title = ({todoCount}) => {
   return (
     <header>
-      <h1>TODO List <span className='badge'>{todoCount}</span></h1>
+      <h1>To-do List <span className='badge'>{todoCount}</span></h1>
     </header>
   )
 }
@@ -77,7 +77,7 @@ export default class TodoApp extends React.Component {
     	component.setState({items: items, message: ''})
     }).catch((err) => {
       // TODO: Get some better error handling in here.
-      component.setState({items: [], message: 'FAIL: Start the server at ' + apiUrl})
+      component.setState({items: [], message: 'FAILURE! Please start the server at ' + apiUrl})
     })
   }
 
@@ -104,7 +104,7 @@ export default class TodoApp extends React.Component {
       component.state.items.push(newTodo)
       component.setState({items: component.state.items, message: ''})
     }).catch((err) => {
-      component.setState({items: component.state.items, message: 'Failed to add TODO item. FIX YOUR CODEZ!'})
+      component.setState({items: component.state.items, message: 'FAIL: to add TODO item. Fix the code!'})
     })
   }
 
@@ -120,7 +120,7 @@ export default class TodoApp extends React.Component {
       component.setState({items: remainder, message: ''})
     }).catch((err) => {
       // TODO: Get some better error handling in here.
-      component.setState({items: component.state.items, message: 'Failed to delete TODO item. FIX YOUR CODEZ!'})
+      component.setState({items: component.state.items, message: 'FAIL: to delete TODO item. Fix the code!'})
     })
   }
 
