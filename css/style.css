@@ -1,14 +1,61 @@
 body {
-  padding: 50px;
-  font-family: "comic sans ms";
+  font-family: sans-serif;
+  font-size: 13px;
   background-color: #ffffff;
-  background-image:url('octohaack.jpg')
 }
 
-.list-group-item {
-  background-color: red;
+header {
+    background-color: rgb(163, 73, 164);
+    color: #fff;
+    padding: 1em;
+    border-bottom: 1px solid #ccc;
+    box-shadow: 0 2px 2px #ddd;
 }
 
-.list-group-item:hover {
-  background-color: orange;
+h1 {
+  font-size: 14px;
+  font-weight: bold;
+  margin: 0;
+}
+
+form {
+    background-color: rgb(243, 243, 243);
+    display: flex;
+    padding: 1em;
+}
+
+form input {
+    flex-grow: 1;
+    padding: 0 0.25em;
+}
+
+form button {
+  margin-left: 1em;
+  width: 100px;
+}
+
+.list-group {
+  border-bottom: 1px solid #ddd;
+}
+
+li.list-group-item {
+  border-radius: 0 !important;
+  border: none;
+  border-top: 1px solid #ddd;
+}
+
+.btn {
+    background: none !important;
+    color: #aaa;
+    padding: 0;
+    font-size: 0.875em;
+}
+
+.btn:hover {
+    color: #333;
+}
+
+.badge {
+  background: rgb(89, 40, 89);
+  margin-left: 0.25em;
 }
