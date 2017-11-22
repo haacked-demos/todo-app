@@ -30,7 +30,7 @@ const TodoItem = ({todo, remove}) => {
     <li className="list-group-item clearfix">
       <span>{todo.title}</span>
       <span className="pull-right button-group">
-        <button onClick={() => {remove(todo.key)}} type="button" className="btn btn-danger"><span className="glyphicon glyphicon-remove"></span> Delete</button>
+        <button onClick={() => {remove(todo.key)}} type="button" className="btn" aria-label="Delete"><span className="glyphicon glyphicon-remove"></span></button>
       </span>
     </li>
   )
@@ -40,7 +40,11 @@ const TodoList = ({items, remove}) => {
   const todoElements = items.map((todo) => {
     return (<TodoItem todo={todo} key={todo.key} remove={remove}/>)
   })
-  return (<ul className="list-group" style={{marginTop:'30px'}}>{todoElements}</ul>)
+  return (
+    <div className='list-group-container'>
+      <ul className="list-group">{todoElements}</ul>
+    </div>
+  )
 }
 
 export default class TodoApp extends React.Component {
