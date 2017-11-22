@@ -5,9 +5,9 @@ const apiUrl = 'http://localhost:5000/api/todo'
 
 const Title = ({todoCount}) => {
   return (
-    <div>
-      <h1>TODO List ({todoCount})</h1>
-    </div>
+    <header>
+      <h1>TODO List <span className='badge'>{todoCount}</span></h1>
+    </header>
   )
 }
 
