@@ -1,12 +1,15 @@
 body {
-  padding: 50px;
-  font-family: "comic sans ms";
+  font-family: sans-serif;
+  font-size: 13px;
   background-color: #ffffff;
-  background-image:url('octohaack.jpg')
 }
 
-.list-group-item {
-  background-color: red;
+header {
+    background-color: rgb(163, 73, 164);
+    color: #fff;
+    padding: 1em;
+    border-bottom: 1px solid #ccc;
+    box-shadow: 0 2px 2px #ddd;
 }
 
 .list-group-item:hover {
