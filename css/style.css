@@ -12,6 +12,10 @@ header {
     box-shadow: 0 2px 2px #ddd;
 }
 
-.list-group-item:hover {
-  background-color: orange;
+h1 {
+  font-size: 14px;
+  font-weight: bold;
+  margin: 0;
+}
+
 }
