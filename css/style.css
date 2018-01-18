@@ -4,6 +4,18 @@ body {
   background-color: #ffffff;
 }
 
+div.error {
+  background-color: rgb(243, 243, 243);
+  display: flex;
+}
+
+div.error h2 {
+  color: red;
+  font-weight: normal;
+  font-size: 1em;
+  padding-left: 10px;  
+}
+
 header {
     background-color: rgb(163, 73, 164);
     color: #fff;

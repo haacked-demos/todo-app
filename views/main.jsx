@@ -1,12 +1,28 @@
 import React from 'react'
 import { render } from 'react-dom'
-
+//HELLO NDC!!
 const apiUrl = 'http://localhost:5000/api/todo'
 
 const Title = ({todoCount}) => {
   return (
     <header>
-      <h1>TODO List <span className='badge'>{todoCount}</span></h1>
+      <h1>To-do List <span className='badge'>{todoCount}</span></h1>
+    </header>
+  )
+}
+const Messenger = ({message}) => {
+  if (message) {
+    return (<div className="error">
+      <h2>{message}</h2>
+    </div>)
+  }
+  return null
+}
+// Please hurry up.
+const Title = ({todoCount}) => {
+  return (
+    <header>
+      <h1>To-do List <span className='badge'>{todoCount}</span></h1>
     </header>
   )
 }
@@ -53,7 +69,8 @@ export default class TodoApp extends React.Component {
     super(props)
     // Set initial state
     this.state = {
-      items: []
+      items: [],
+      message: ''
     }
   }
 
@@ -64,15 +81,21 @@ export default class TodoApp extends React.Component {
     }).then((response) => {
       return response.json()
     }).then((items) => {
-    	component.setState({items: items})
+    	component.setState({items: items, message: ''})
     }).catch((err) => {
       // TODO: Get some better error handling in here.
-      component.setState({items: [{key: Date.now(), title: 'FAIL: Start the server at ' + apiUrl}]})
+      component.setState({items: [], message: 'FAILURE! Please start the server at ' + apiUrl})
     })
   }
 
   addTodo(val) {
     const component = this
+
+    if (!val) {
+      component.setState({item: component.state.items, message: 'The task cannot be empty'})
+      return
+    }
+
     fetch(apiUrl, {
     	method: 'post',
       headers: new Headers({
@@ -86,11 +109,9 @@ export default class TodoApp extends React.Component {
       return response.json()
     }).then((newTodo) => {
       component.state.items.push(newTodo)
-      component.setState({items: component.state.items})
+      component.setState({items: component.state.items, message: ''})
     }).catch((err) => {
-      // TODO: Get some better error handling in here.
-      component.state.items.push({key: 0, title: 'Failed to add TODO item. FIX YOUR CODEZ!'})
-      component.setState({items: component.state.items})
+      component.setState({items: component.state.items, message: 'FAIL: to add TODO item. Fix the code!'})
     })
   }
 
@@ -103,18 +124,17 @@ export default class TodoApp extends React.Component {
       const remainder = component.state.items.filter((todo) => {
         if(todo.key !== id) return todo
       })
-      component.setState({items: remainder})
+      component.setState({items: remainder, message: ''})
     }).catch((err) => {
       // TODO: Get some better error handling in here.
-      component.state.items.push({key: 0, title: 'Failed to delete TODO item. FIX YOUR CODEZ!'})
-      component.setState({items: component.state.items})
-    })
+      component.setState({items: component.state.items, message: 'FAIL: to delete TODO item. Fix the code!'})    })
   }
 
   render() {
       return (
         <div>
           <Title todoCount={this.state.items.length}/>
+          <Messenger message={this.state.message} />
           <TodoForm addTodo={this.addTodo.bind(this)} />
           <TodoList
              items={this.state.items}
