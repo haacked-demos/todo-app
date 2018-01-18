@@ -5,9 +5,9 @@ const apiUrl = 'http://localhost:5000/api/todo'
 
 const Title = ({todoCount}) => {
   return (
-    <div>
-      <h1>TODO List ({todoCount})</h1>
-    </div>
+    <header>
+      <h1>TODO List <span className='badge'>{todoCount}</span></h1>
+    </header>
   )
 }
 
@@ -40,7 +40,9 @@ const TodoList = ({items, remove}) => {
   const todoElements = items.map((todo) => {
     return (<TodoItem todo={todo} key={todo.key} remove={remove}/>)
   })
-  return (<ul className="list-group" style={{marginTop:'30px'}}>{todoElements}</ul>)
+  return (
+    </div>
+  )
 }
 
 export default class TodoApp extends React.Component {
