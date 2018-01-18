@@ -10,7 +10,6 @@ const Title = ({todoCount}) => {
     </header>
   )
 }
-
 const Messenger = ({message}) => {
   if (message) {
     return (<div className="error">
@@ -86,7 +85,6 @@ export default class TodoApp extends React.Component {
     }).catch((err) => {
       // TODO: Get some better error handling in here.
       component.setState({items: [], message: 'FAILURE! Please start the server at ' + apiUrl})
-
     })
   }
 
@@ -114,7 +112,6 @@ export default class TodoApp extends React.Component {
       component.setState({items: component.state.items, message: ''})
     }).catch((err) => {
       component.setState({items: component.state.items, message: 'FAIL: to add TODO item. Fix the code!'})
-
     })
   }
 
@@ -130,8 +127,7 @@ export default class TodoApp extends React.Component {
       component.setState({items: remainder, message: ''})
     }).catch((err) => {
       // TODO: Get some better error handling in here.
-      component.setState({items: component.state.items, message: 'FAIL: to delete TODO item. Fix the code!'})
-    })
+      component.setState({items: component.state.items, message: 'FAIL: to delete TODO item. Fix the code!'})    })
   }
 
   render() {
