@@ -11,7 +11,7 @@ jobs:
             - name: Call Feature Flags Project Workflow
               uses: actions/github-script@v6
               with:
-                  github-token: ${{ secrets.GITHUB_TOKEN }}
+                  github-token: ${{ secrets.POSTHOG_BOT_GITHUB_TOKEN }}
                   script: |
                       const pr = context.payload.pull_request;
                       await github.rest.actions.createWorkflowDispatch({
