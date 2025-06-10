@@ -6,22 +6,8 @@ on:
 
 jobs:
     call-flags-project:
-        runs-on: ubuntu-latest
-        steps:
-            - name: Call Feature Flags Project Workflow
-              uses: actions/github-script@v6
-              with:
-                  github-token: ${{ secrets.POSTHOG_BOT_GITHUB_TOKEN }}
-                  script: |
-                      const pr = context.payload.pull_request;
-                      await github.rest.actions.createWorkflowDispatch({
-                          owner: 'haacked-demos',
-                          repo: '.github',
-                          workflow_id: 'flags-project-board.yml',
-                          ref: 'main',
-                          inputs: {
-                              pr_number: pr.number.toString(),
-                              pr_node_id: pr.node_id,
-                              is_draft: pr.draft.toString()
-                          }
-                      }); 
+        uses: ./.github/workflows/flags-project-board.yml
+        with:
+            pr_number: ${{ github.event.pull_request.number }}
+            pr_node_id: ${{ github.event.pull_request.node_id }}
+            is_draft: ${{ github.event.pull_request.draft }}
