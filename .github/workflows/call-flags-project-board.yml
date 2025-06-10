@@ -6,7 +6,7 @@ on:
 
 jobs:
     call-flags-project:
-        uses: ./.github/workflows/flags-project-board.yml
+        uses: haacked-demos/.github/.github/workflows/flags-project-board.yml@main
         with:
             pr_number: ${{ github.event.pull_request.number }}
             pr_node_id: ${{ github.event.pull_request.node_id }}
